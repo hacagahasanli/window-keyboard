@@ -1,2 +1,2 @@
 //keyboard
-export { keyboardReducer, addClickedKeyValue } from './keyboard/index';
+export { keyboardReducer, addClickedKeyValue, deleteValue } from './keyboard/index';

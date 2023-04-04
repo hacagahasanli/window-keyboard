@@ -10,7 +10,13 @@ export const KeyboardRow = () => {
                 return <KeyboardWrapper key={v4()}>
                     {keys[rowKey]?.map(({ id, ...rest }) => {
                         return (
-                            <KeyItem key={id} {...rest} {...{ id }} />
+                            <KeyItem
+                                onMouseDown={() => { }}
+                                onMouseUp={() => { }}
+                                key={id}
+                                {...rest}
+                                {...{ id }}
+                            />
                         )
                     })}
                 </KeyboardWrapper>

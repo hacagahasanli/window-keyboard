@@ -1,24 +1,29 @@
 import { useDispatch } from "react-redux"
-import { addClickedKeyValue } from "store/reducers"
+import { addClickedKeyValue, deleteValue } from "store/reducers"
 import styled from "styled-components"
 import { IKeyItemProps, IKeyItemType } from "types/keyboardTypes"
 import { Icon } from ".."
+import { validValues } from "constants/index"
 
 export const KeyItem = ({ size, name, subName, c, img, hasImage }: IKeyItemType) => {
     const dispatch = useDispatch()
-    const addValue = () => dispatch(addClickedKeyValue(name))
+    const addValue = () => {
+        if (validValues.includes(name))
+            return dispatch(addClickedKeyValue(name))
+        if (name === "backspace")
+            return dispatch(deleteValue())
+    }
 
+    const currentScript = hasImage && img
+        ? <Icon name={img} />
+        : <>
+            <span>{name}</span>
+            <span>{subName}</span>
+        </>
 
     return (
         <StyledKeyItem  {...{ size, c }} onClick={addValue}>
-            {hasImage && img
-                ? <Icon name={img} />
-                : <>
-                    <span>{name}</span>
-                    <span>{subName}</span>
-                </>
-            }
-
+            {currentScript}
         </StyledKeyItem >
     )
 }

@@ -1,14 +1,13 @@
 import { KeyboardKeysType } from "types/keyboardTypes"
+import { keepLowerCaseLetters } from "utils/keepLetters"
 
 export const validValues = [
     '~', '!', '@', "#", "$",
     "%", "^", "&", "*", "(", ")",
-    "_", "=", "q", "w", "e", "r",
-    "t", "y", "u", "i", "o", "p",
-    "{", "}", "|", "a", "s", "d",
-    "f", "g", "h", "j", "k", "l",
-    ":", '"', "z", "x", "c", "v", "b", "n", "m",
-    "<", '>', "?", "x", "c", "v", "b", "n", "m",
+    "_", "=", "<", '>', "?", ":", '"', "{", "}", "|",
+    "q", "w", "e", "r", "t", "y", "u", "i", "o", "p",
+    "a", "s", "d", "f", "g", "h", "j", "k", "l",
+    "z", "x", "c", "v", "b", "n", "m",
 ]
 
 export const keys: KeyboardKeysType = {
@@ -90,5 +89,7 @@ export const keys: KeyboardKeysType = {
         { id: "ic", name: "IC" }
     ]
 }
+
+export const letters = [...keepLowerCaseLetters(validValues)]
 
 export const rowKeys = ["rowOne", "rowTwo", "rowThree", "rowFour", "rowFive"]

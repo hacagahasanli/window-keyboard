@@ -13,14 +13,13 @@ const KeyboardSlice = createSlice({
     reducers: {
         addClickedKeyValue: (state: IKeyboardState, action: AddClickedKeyValueAction) => {
             const keyValue = action.payload;
-            if (validValues.includes(keyValue))
-                state.typedValue.push(keyValue)
+            state.typedValue.push(keyValue)
         },
-        deleteValue: (state: IKeyboardState, action) => {
+        deleteValue: (state: IKeyboardState) => {
             state.typedValue.pop()
         }
     }
 })
 
 export const keyboardReducer = KeyboardSlice.reducer;
-export const { addClickedKeyValue } = KeyboardSlice.actions
+export const { addClickedKeyValue, deleteValue } = KeyboardSlice.actions

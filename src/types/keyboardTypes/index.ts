@@ -1,5 +1,3 @@
-import { FC } from "react";
-
 export interface IKeyItemProps {
     size?: number | null;
     c?: string | null
@@ -13,7 +11,9 @@ export interface IKeyItemType {
     c?: string | null;
     img?: string,
     hasImage?: boolean,
-    type?: string | null
+    type?: string | null,
+    onMouseDown?: () => void;
+    onMouseUp?: () => void;
 };
 
 export interface KeyboardKeysType {
