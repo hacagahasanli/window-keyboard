@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { AddClickedKeyValueAction } from '../store-types/index';
+import { validValues } from 'constants/index';
 interface IKeyboardState {
     typedValue: string[];
 }
@@ -12,7 +13,11 @@ const KeyboardSlice = createSlice({
     reducers: {
         addClickedKeyValue: (state: IKeyboardState, action: AddClickedKeyValueAction) => {
             const keyValue = action.payload;
-            state.typedValue.push(keyValue)
+            if (validValues.includes(keyValue))
+                state.typedValue.push(keyValue)
+        },
+        deleteValue: (state: IKeyboardState, action) => {
+            state.typedValue.pop()
         }
     }
 })

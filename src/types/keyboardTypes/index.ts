@@ -12,7 +12,8 @@ export interface IKeyItemType {
     size?: number | null;
     c?: string | null;
     img?: string,
-    hasImage?: boolean
+    hasImage?: boolean,
+    type?: string | null
 };
 
 export interface KeyboardKeysType {

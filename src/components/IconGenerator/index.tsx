@@ -18,7 +18,7 @@ export const Icon: FC<IIconPropStype> = ({ name }) => {
         "windowKey": WindowKey,
         "backspaceKey": BackspaceKey
     }
-    const IconC = icons[name]
+    const IconComponent = icons[name]
 
-    return <IconC />
+    return <IconComponent />
 }
