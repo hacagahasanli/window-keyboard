@@ -1,3 +1,5 @@
+import { FC } from "react";
+
 export interface IKeyItemProps {
     size?: number | null;
     c?: string | null
@@ -9,6 +11,8 @@ export interface IKeyItemType {
     subName?: string | null;
     size?: number | null;
     c?: string | null;
+    img?: string,
+    hasImage?: boolean
 };
 
 export interface KeyboardKeysType {

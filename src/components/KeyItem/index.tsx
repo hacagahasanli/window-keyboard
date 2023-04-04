@@ -2,15 +2,23 @@ import { useDispatch } from "react-redux"
 import { addClickedKeyValue } from "store/reducers"
 import styled from "styled-components"
 import { IKeyItemProps, IKeyItemType } from "types/keyboardTypes"
+import { Icon } from ".."
 
-export const KeyItem = ({ size, name, subName, c }: IKeyItemType) => {
+export const KeyItem = ({ size, name, subName, c, img, hasImage }: IKeyItemType) => {
     const dispatch = useDispatch()
     const addValue = () => dispatch(addClickedKeyValue(name))
 
+
     return (
         <StyledKeyItem  {...{ size, c }} onClick={addValue}>
-            <span>{name}</span>
-            <span>{subName}</span>
+            {hasImage && img
+                ? <Icon name={img} />
+                : <>
+                    <span>{name}</span>
+                    <span>{subName}</span>
+                </>
+            }
+
         </StyledKeyItem >
     )
 }

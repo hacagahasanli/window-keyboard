@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { KeyboardKeysType } from "types/keyboardTypes"
 import { v4 } from "uuid"
-import { KeyItem } from "components/KeyItem"
+import { KeyItem } from ".."
 
 export const KeyboardRow = () => {
     const keys: KeyboardKeysType = {
@@ -20,7 +20,7 @@ export const KeyboardRow = () => {
             { id: 'right_parenthesis', name: ')', subName: '0', c: "g" },
             { id: 'hyphen', name: '-', subName: '_', c: "g" },
             { id: 'plus', name: '+', subName: '=', c: "g" },
-            { id: 'delete', name: "<", size: 1.6 },
+            { id: 'delete', img: "backspaceKey", name: "backspace", hasImage: true, size: 1.6 },
         ],
         "rowTwo": [
             { id: "tab", name: "Tab", size: 1.6 },
@@ -55,7 +55,7 @@ export const KeyboardRow = () => {
             { id: "enter", name: "Enter", size: 2.75 },
         ],
         "rowFour": [
-            { id: "shift", name: "Shift", size: 2.73 },
+            { id: "shift1", name: "Shift", size: 2.73 },
             { id: "z", name: "z" },
             { id: "x", name: "x" },
             { id: "c", name: "c" },
@@ -63,18 +63,18 @@ export const KeyboardRow = () => {
             { id: "b", name: "b" },
             { id: "n", name: "n" },
             { id: "m", name: "m" },
-            { id: "<", name: "<", subName: "," },
-            { id: ">", name: ">", subName: "." },
-            { id: "?", name: "?", subName: "/" },
-            { id: "^", name: "^" },
-            { id: "shift", name: "Shift", size: 2.14 }
+            { id: "<", name: "<", subName: ",", c: "g" },
+            { id: ">", name: ">", subName: ".", c: "g" },
+            { id: "?", name: "?", subName: "/", c: "g" },
+            { id: "^", name: "^", c: "g" },
+            { id: "shift2", name: "Shift", size: 2.14 }
         ],
         "rowFive": [
             { id: "fn", name: "Fn" },
             { id: "ctrl1", name: "Ctrl" },
-            { id: "w", name: "W" },
+            { id: "window", img: "windowKey", name: "window", hasImage: true },
             { id: "alt1", name: "Alt" },
-            { id: "space", name: "spacec", size: 6.10 },
+            { id: "space", name: "", size: 6.10 },
             { id: "alt2", name: "Alt" },
             { id: "ctrl2", name: "Ctrl" },
             { id: "<>", name: "<>" },
