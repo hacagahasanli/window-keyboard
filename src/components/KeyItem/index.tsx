@@ -1,11 +1,18 @@
+import { useDispatch } from "react-redux"
+import { addClickedKeyValue } from "store/reducers"
 import styled from "styled-components"
 import { IKeyItemProps, IKeyItemType } from "types/keyboardTypes"
 
-export const KeyItem = ({ size, name, subName }: IKeyItemType) => {
-    return <StyledKeyItem  {...{ size }}>
-        <span>{name}</span>
-        <span>{subName}</span>
-    </StyledKeyItem >
+export const KeyItem = ({ size, name, subName, c }: IKeyItemType) => {
+    const dispatch = useDispatch()
+    const addValue = () => dispatch(addClickedKeyValue(name))
+
+    return (
+        <StyledKeyItem  {...{ size, c }} onClick={addValue}>
+            <span>{name}</span>
+            <span>{subName}</span>
+        </StyledKeyItem >
+    )
 }
 
 const StyledKeyItem = styled.div<IKeyItemProps>`
@@ -27,8 +34,8 @@ const StyledKeyItem = styled.div<IKeyItemProps>`
         background:white;
     }
 
-    span:nth-child(1){
-        color:#c1c1c1;
+    span:first-child{
+        color:${({ c }) => c ? "#c1c1c1" : null};
     }
 
     span:nth-child(2){
