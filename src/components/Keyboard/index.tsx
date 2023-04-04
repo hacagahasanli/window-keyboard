@@ -1,73 +1,12 @@
 import { FC } from "react"
 import styled from "styled-components"
-import { IKeyItemProps } from "types/keyboardTypes"
+import { KeyboardRow } from '../KeyboardRow/index';
 
 const Keyboard: FC = () => {
     return (
         <KeyboardContainer>
-            <KeyboardWrapper>
-                <KeyItem>
-                    <span>ESC</span>
-                    <span></span>
-                </KeyItem>
-                <KeyItem>
-                    <span>~</span>
-                    <span></span>
-                </KeyItem>
-                <KeyItem>
-                    <span>!</span>
-                    <span></span>
-                </KeyItem>
-                <KeyItem>
-                    <span>@</span>
-                    <span></span>
-                </KeyItem>
-                <KeyItem>
-                    <span>#</span>
-                    <span></span>
-                </KeyItem>
-                <KeyItem>
-                    <span>$</span>
-                    <span></span>
-                </KeyItem>
-                <KeyItem>
-                    <span>%</span>
-                    <span></span>
-                </KeyItem>
-                <KeyItem>
-                    <span>^</span>
-                    <span></span>
-                </KeyItem>
-                <KeyItem>
-                    <span>&</span>
-                    <span></span>
-                </KeyItem>
-                <KeyItem>
-                    <span>*</span>
-                    <span></span>
-                </KeyItem>
-                <KeyItem>
-                    <span>{"("}</span>
-                    <span></span>
-                </KeyItem>
-                <KeyItem>
-                    <span>{")"}</span>
-                    <span></span>
-                </KeyItem>
-                <KeyItem>
-                    <span>{"-"}</span>
-                    <span></span>
-                </KeyItem>
-                <KeyItem>
-                    <span>{"+"}</span>
-                    <span></span>
-                </KeyItem>
-                <KeyItem size={1.6}>
-                    <span>{"<>>"}</span>
-                    <span></span>
-                </KeyItem>
-            </KeyboardWrapper>
-            <KeyboardWrapper>
+            <KeyboardRow />
+            {/* <KeyboardWrapper>
                 <KeyItem size={1.6}>
                     <span>Tab</span>
                     <span></span>
@@ -282,7 +221,7 @@ const Keyboard: FC = () => {
                     <span>{"IC"}</span>
                     <span></span>
                 </KeyItem>
-            </KeyboardWrapper>
+            </KeyboardWrapper> */}
         </KeyboardContainer>
     )
 }
@@ -301,29 +240,6 @@ const KeyboardContainer = styled.div`
      align-items:center;
      font-family: 'Segoe UI', sans-serif;
      font-weight:600;
-`
-const KeyboardWrapper = styled.div`
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    width:100%;
-    gap:.15rem;
-`
-const KeyItem = styled.div<IKeyItemProps>`
-    background:#4e4e4e;
-    width:100%;
-    padding:.2rem;
-    width:${props => props.size ? `${props.size * 6}rem` : `${6}rem`};
-    height:2.5em;
-
-    display:flex;
-    justify-content:flex-start;
-    color:white;
-
-    :hover{
-        color:#000000;
-        background:white;
-    }
 `
 
 export { Keyboard }

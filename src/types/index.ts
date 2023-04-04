@@ -1,3 +1,3 @@
-import type { IKeyItemProps } from "./keyboardTypes";
+import type { IKeyItemProps, IKeyItemType } from "./keyboardTypes";
 
 export { IKeyItemProps }
