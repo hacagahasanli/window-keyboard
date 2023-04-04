@@ -1,22 +1,31 @@
 import styled from "styled-components"
 import { v4 } from "uuid"
 import { KeyItem } from ".."
-import { keys, rowKeys } from "constants/index"
+import { keys } from "constants/index"
+import { useSelector, useDispatch } from 'react-redux';
+import { addwholeValueToReducer } from "store/reducers";
+import { useEffect } from "react";
+interface IKeyBoardSelector {
+    keyboard: {
+        allKeyValues: string[];
+    }
+}
 
 export const KeyboardRow = () => {
+    const dispatch = useDispatch()
+    const { allKeyValues } = useSelector((state: IKeyBoardSelector) => state.keyboard)
+
+    useEffect(() => {
+        dispatch(addwholeValueToReducer())
+    }, [])
+
     return (
         <>
-            {rowKeys.map((rowKey) => {
+            {allKeyValues?.map((rowKey: string) => {
                 return <KeyboardWrapper key={v4()}>
                     {keys[rowKey]?.map(({ id, ...rest }) => {
                         return (
-                            <KeyItem
-                                onMouseDown={() => { }}
-                                onMouseUp={() => { }}
-                                key={id}
-                                {...rest}
-                                {...{ id }}
-                            />
+                            <KeyItem key={id} {...rest} {...{ id }} />
                         )
                     })}
                 </KeyboardWrapper>

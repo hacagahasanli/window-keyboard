@@ -1,6 +1,7 @@
 export interface IKeyItemProps {
     size?: number | null;
-    c?: string | null
+    c?: string | null;
+    isUpperCasedValue?:boolean;
 }
 
 export interface IKeyItemType {

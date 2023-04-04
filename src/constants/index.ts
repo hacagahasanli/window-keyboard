@@ -3,7 +3,7 @@ import { keepLowerCaseLetters } from "utils/keepLetters"
 
 export const validValues = [
     '~', '!', '@', "#", "$",
-    "%", "^", "&", "*", "(", ")",
+    "%", "^", "&", "*", "(", ")", " ",
     "_", "=", "<", '>', "?", ":", '"', "{", "}", "|",
     "q", "w", "e", "r", "t", "y", "u", "i", "o", "p",
     "a", "s", "d", "f", "g", "h", "j", "k", "l",
@@ -80,7 +80,7 @@ export const keys: KeyboardKeysType = {
         { id: "ctrl1", name: "Ctrl" },
         { id: "window", img: "windowKey", name: "window", hasImage: true },
         { id: "alt1", name: "Alt" },
-        { id: "space", name: "", size: 6.10 },
+        { id: "space", name: " ", size: 6.10 },
         { id: "alt2", name: "Alt" },
         { id: "ctrl2", name: "Ctrl" },
         { id: "<>", name: "left" },

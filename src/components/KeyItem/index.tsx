@@ -1,18 +1,31 @@
-import { useDispatch } from "react-redux"
-import { addClickedKeyValue, deleteValue } from "store/reducers"
+import { useDispatch, useSelector } from 'react-redux';
+import { addClickedKeyValue, deleteValue, capsClickHandler } from "store/reducers"
 import styled from "styled-components"
 import { IKeyItemProps, IKeyItemType } from "types/keyboardTypes"
 import { Icon } from ".."
 import { validValues } from "constants/index"
 
-export const KeyItem = ({ size, name, subName, c, img, hasImage }: IKeyItemType) => {
+interface IKeyBoardSelector {
+    keyboard: {
+        shiftClicked: boolean;
+    }
+}
+
+export const KeyItem = ({ id, size, name, subName, c, img, hasImage }: IKeyItemType) => {
     const dispatch = useDispatch()
+    const { shiftClicked } = useSelector((state: IKeyBoardSelector) => state.keyboard)
+
     const addValue = () => {
         if (validValues.includes(name))
             return dispatch(addClickedKeyValue(name))
         if (name === "backspace")
             return dispatch(deleteValue())
+        if (id === "caps-lock")
+            return dispatch(capsClickHandler())
+        // if(id === "shift1" || id === "shift1")                              
     }
+
+    const isUpperCasedValue = shiftClicked && validValues.includes(name)
 
     const currentScript = hasImage && img
         ? <Icon name={img} />
@@ -22,7 +35,7 @@ export const KeyItem = ({ size, name, subName, c, img, hasImage }: IKeyItemType)
         </>
 
     return (
-        <StyledKeyItem  {...{ size, c }} onClick={addValue}>
+        <StyledKeyItem  {...{ size, c, isUpperCasedValue }} onClick={addValue}>
             {currentScript}
         </StyledKeyItem >
     )
@@ -37,6 +50,7 @@ const StyledKeyItem = styled.div<IKeyItemProps>`
     display:flex;
     justify-content:space-between;
     color:white;
+    text-transform:${(({ isUpperCasedValue }) => isUpperCasedValue && 'uppercase')};
 
     span{
         width:50%;
@@ -54,6 +68,5 @@ const StyledKeyItem = styled.div<IKeyItemProps>`
     span:nth-child(2){
         position:relative;
         top:1rem;
-       
     }
 `

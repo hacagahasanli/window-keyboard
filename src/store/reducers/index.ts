@@ -1,2 +1,8 @@
 //keyboard
-export { keyboardReducer, addClickedKeyValue, deleteValue } from './keyboard/index';
+export {
+    keyboardReducer,
+    addClickedKeyValue,
+    deleteValue,
+    addwholeValueToReducer,
+    capsClickHandler
+} from './keyboard/index';
