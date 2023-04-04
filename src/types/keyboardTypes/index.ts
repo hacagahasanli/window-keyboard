@@ -1,9 +1,10 @@
 export interface IKeyItemProps {
-    size?: number;
+    size?: number | null;
 }
 
 export interface IKeyItemType {
     id: string;
-    name: string;
+    name?: string;
     subName?: string | null;
+    size?: number | null
 };
