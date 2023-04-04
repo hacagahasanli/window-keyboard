@@ -1,31 +1,38 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { addClickedKeyValue, deleteValue, capsClickHandler } from "store/reducers"
-import styled from "styled-components"
-import { IKeyItemProps, IKeyItemType } from "types/keyboardTypes"
 import { Icon } from ".."
+import { useDispatch, useSelector } from 'react-redux';
+import { IKeyItemProps, IKeyItemType } from "types/keyboardTypes"
 import { validValues } from "constants/index"
+import styled from "styled-components"
+import {
+    addClickedKeyValue,
+    deleteValue,
+    capsClickHandler,
+    shiftClickHandler
+} from "store/reducers"
 
-interface IKeyBoardSelector {
-    keyboard: {
+interface IKeyClickedSelector {
+    keyClicked: {
+        capsClicked: boolean;
         shiftClicked: boolean;
     }
 }
 
 export const KeyItem = ({ id, size, name, subName, c, img, hasImage }: IKeyItemType) => {
     const dispatch = useDispatch()
-    const { shiftClicked } = useSelector((state: IKeyBoardSelector) => state.keyboard)
+    const { capsClicked, shiftClicked } = useSelector((state: IKeyClickedSelector) => state.keyClicked)
 
     const addValue = () => {
         if (validValues.includes(name))
-            return dispatch(addClickedKeyValue(name))
+            return dispatch(addClickedKeyValue({ name, capsClicked, shiftClicked }))
         if (name === "backspace")
             return dispatch(deleteValue())
         if (id === "caps-lock")
             return dispatch(capsClickHandler())
-        // if(id === "shift1" || id === "shift1")                              
+        if (id === "shift1" || id === "shift2")
+            return dispatch(shiftClickHandler())
     }
 
-    const isUpperCasedValue = shiftClicked && validValues.includes(name)
+    const isUpperCasedValue = capsClicked && validValues.includes(name)
 
     const currentScript = hasImage && img
         ? <Icon name={img} />

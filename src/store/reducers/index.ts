@@ -1,8 +1,15 @@
+//key clicked
+export {
+    keyClickedReducer,
+    capsClickHandler,
+    shiftClickHandler
+} from './keyClicked';
+
 //keyboard
 export {
     keyboardReducer,
     addClickedKeyValue,
     deleteValue,
     addwholeValueToReducer,
-    capsClickHandler
 } from './keyboard/index';
+

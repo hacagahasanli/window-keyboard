@@ -1,9 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers } from 'redux';
-import { keyboardReducer } from "./reducers";
+import { keyboardReducer, keyClickedReducer } from "./reducers";
 
 const rootReducer = combineReducers({
-    keyboard: keyboardReducer
+    keyboard: keyboardReducer,
+    keyClicked: keyClickedReducer
 })
 
 const store = configureStore({
