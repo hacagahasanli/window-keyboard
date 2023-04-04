@@ -3,7 +3,6 @@ import styled from "styled-components"
 import { KeyboardRow } from '../KeyboardRow/index';
 
 const Keyboard: FC = () => {
-    
     return (
         <KeyboardContainer>
             <KeyboardRow />

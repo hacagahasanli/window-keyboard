@@ -8,3 +8,7 @@ export interface IKeyItemType {
     subName?: string | null;
     size?: number | null
 };
+
+export interface KeyboardKeysType {
+    [key: string]: IKeyItemType[]
+}

@@ -1,11 +1,9 @@
 import styled from "styled-components"
-import { IKeyItemProps, IKeyItemType } from "types/keyboardTypes"
+import { KeyboardKeysType } from "types/keyboardTypes"
 import { v4 } from "uuid"
+import { KeyItem } from "components/KeyItem"
 
 export const KeyboardRow = () => {
-    interface KeyboardKeysType {
-        [key: string]: IKeyItemType[]
-    }
     const keys: KeyboardKeysType = {
         "rowOne": [
             { id: 'esc', name: 'Esc' },
@@ -92,12 +90,9 @@ export const KeyboardRow = () => {
         <>
             {rowKeys.map((rowKey) => {
                 return <KeyboardWrapper key={v4()}>
-                    {keys[rowKey]?.map(({ name, subName, id, size }) => {
+                    {keys[rowKey]?.map(({ id, ...rest }) => {
                         return (
-                            <KeyItem key={id} {...{ size }}>
-                                <span>{name}</span>
-                                <span>{subName}</span>
-                            </KeyItem>
+                            <KeyItem key={id} {...rest} {...{ id }} />
                         )
                     })}
                 </KeyboardWrapper>
@@ -112,21 +107,4 @@ const KeyboardWrapper = styled.div`
     align-items:center;
     width:100%;
     gap:.15rem;
-`
-
-const KeyItem = styled.div<IKeyItemProps>`
-    background:#4e4e4e;
-    width:100%;
-    padding:.2rem;
-    width:${props => props.size ? `${props.size * 6}rem` : `${6}rem`};
-    height:2.5em;
-
-    display:flex;
-    justify-content:flex-start;
-    color:white;
-
-    :hover{
-        color:#000000;
-        background:white;
-    }
 `
