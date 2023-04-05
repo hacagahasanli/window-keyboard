@@ -1,7 +1,13 @@
 export interface IKeyItemProps {
     size?: number | null;
+    isUpperCasedValue?: boolean;
+}
+
+export interface IKeyNameProp {
+    isActive?: boolean;
     c?: string | null;
-    isUpperCasedValue?:boolean;
+    subName?: string | null;
+    name?: string | null;
 }
 
 export interface IKeyItemType {

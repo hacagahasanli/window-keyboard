@@ -72,20 +72,20 @@ export const keys: KeyboardKeysType = {
         { id: "<", name: "<", subName: ",", c: "g" },
         { id: ">", name: ">", subName: ".", c: "g" },
         { id: "?", name: "?", subName: "/", c: "g" },
-        { id: "^", name: "top" },
+        { id: "top", name: "top", img: "arrowTop", hasImage: true },
         { id: "shift2", name: "Shift", size: 2.14 }
     ],
     "rowFive": [
         { id: "fn", name: "Fn" },
         { id: "ctrl1", name: "Ctrl" },
-        { id: "window", img: "windowKey", name: "window", hasImage: true },
+        { id: "window", name: "window", img: "windowKey", hasImage: true },
         { id: "alt1", name: "Alt" },
         { id: "space", name: " ", size: 6.10 },
         { id: "alt2", name: "Alt" },
         { id: "ctrl2", name: "Ctrl" },
-        { id: "<>", name: "left" },
-        { id: "l", name: "bottom" },
-        { id: ">", name: "right" },
+        { id: "left", name: "left", img: "arrowLeft", hasImage: true },
+        { id: "bottom", name: "bottom", img: "arrowBottom", hasImage: true },
+        { id: "right", name: "right", img: "arrowRight", hasImage: true },
         { id: "ic", name: "IC" }
     ]
 }

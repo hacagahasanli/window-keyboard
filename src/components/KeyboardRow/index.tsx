@@ -38,6 +38,7 @@ const KeyboardWrapper = styled.div`
     display:flex;
     justify-content:center;
     align-items:center;
+    position:relative;
     width:100%;
     gap:.15rem;
 `
