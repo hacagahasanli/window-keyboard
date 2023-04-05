@@ -1,17 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { AddClickedKeyValueAction } from '../store-types/index';
 import { letters, rowKeys } from 'constants/index';
-
-interface IDeleteAction {
-    type: string;
-    payload: {
-        type: string
-    }
-}
-interface IAnyAction {
-    type: string;
-    payload: string;
-}
+import { IDeleteAction, IAnyAction, AddClickedKeyValueAction } from './keyboardI';
 
 const KeyboardSlice = createSlice({
     name: "KeyBoardReducer",
