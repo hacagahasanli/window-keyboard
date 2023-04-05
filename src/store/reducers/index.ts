@@ -11,5 +11,7 @@ export {
     addClickedKeyValue,
     deleteValue,
     addwholeValueToReducer,
+    addAnyKey,
+    pasteValue
 } from './keyboard/index';
 

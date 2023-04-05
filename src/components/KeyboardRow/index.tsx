@@ -8,12 +8,17 @@ import { useEffect } from "react";
 interface IKeyBoardSelector {
     keyboard: {
         allKeyValues: string[];
+        joinedValue: string;
+        typedValue: string[];
     }
 }
 
 export const KeyboardRow = () => {
     const dispatch = useDispatch()
-    const { allKeyValues } = useSelector((state: IKeyBoardSelector) => state.keyboard)
+    const { allKeyValues, joinedValue, typedValue } = useSelector((state: IKeyBoardSelector) => state.keyboard)
+
+    if (joinedValue === "ctrlc")
+        navigator.clipboard.writeText(typedValue.join(""));
 
     useEffect(() => {
         dispatch(addwholeValueToReducer())

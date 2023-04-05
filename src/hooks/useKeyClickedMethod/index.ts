@@ -1,6 +1,6 @@
 import { validValues } from "constants/index"
-import { useDispatch } from "react-redux"
-import { addClickedKeyValue, capsClickHandler, deleteValue, shiftClickHandler } from "store/reducers"
+import { useDispatch, useSelector } from "react-redux"
+import { addAnyKey, addClickedKeyValue, capsClickHandler, deleteValue, pasteValue, shiftClickHandler } from "store/reducers"
 
 interface IKeyClickedHook {
     subName?: string | null;
@@ -10,12 +10,22 @@ interface IKeyClickedHook {
     id: string;
 }
 
+interface IKeyBoardSelector {
+    keyboard: {
+        joinedValue: string;
+    }
+}
+
 export const useKeyClickedMethod = () => {
     const dispatch = useDispatch()
 
-    const clickedHandler = ({ id, subName, name, capsClicked, shiftClicked }: IKeyClickedHook) => {
+    const clickedHandler = async ({ id, subName, name, capsClicked, shiftClicked }: IKeyClickedHook) => {
+        dispatch(addAnyKey(name))
+        const text = await navigator.clipboard.readText()
+
         if (validValues.includes(name))
-            return dispatch(addClickedKeyValue({ subName, name, capsClicked, shiftClicked }))
+            return dispatch(addClickedKeyValue({ subName, name, capsClicked, shiftClicked, text }))
+
         switch (id) {
             case "delete":
             case "delete_all":
