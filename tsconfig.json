@@ -26,6 +26,9 @@
       "types/*": [
         "types/*"
       ],
+      "hooks/*": [
+        "hooks/*"
+      ],
     },
     "target": "ESNext",
     "useDefineForClassFields": true,

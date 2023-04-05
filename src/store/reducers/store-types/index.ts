@@ -4,5 +4,6 @@ export interface AddClickedKeyValueAction {
         name: string;
         capsClicked?: boolean;
         shiftClicked?: boolean;
+        subName?: string | null;
     };
 }

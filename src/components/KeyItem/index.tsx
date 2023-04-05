@@ -9,6 +9,7 @@ import {
     capsClickHandler,
     shiftClickHandler
 } from "store/reducers"
+import { useKeyClickedMethod } from "hooks";
 
 interface IKeyClickedSelector {
     keyClicked: {
@@ -18,23 +19,15 @@ interface IKeyClickedSelector {
 }
 
 export const KeyItem = ({ id, size, name, subName, c, img, hasImage }: IKeyItemType) => {
-    const dispatch = useDispatch()
     const { capsClicked, shiftClicked } = useSelector((state: IKeyClickedSelector) => state.keyClicked)
 
     const addValue = () => {
-        if (validValues.includes(name))
-            return dispatch(addClickedKeyValue({ name, capsClicked, shiftClicked }))
-        if (name === "backspace")
-            return dispatch(deleteValue())
-        if (id === "caps-lock")
-            return dispatch(capsClickHandler())
-        if (id === "shift1" || id === "shift2")
-            return dispatch(shiftClickHandler())
+        useKeyClickedMethod({ id, subName, name, capsClicked, shiftClicked })
     }
 
     const isUpperCasedValue = capsClicked && validValues.includes(name)
 
-    const isActive = (!(!subName) && shiftClicked)
+    const isActive = !(!subName) && shiftClicked
 
     const currentScript = hasImage && img
         ? <Icon name={img} />
