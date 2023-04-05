@@ -15,7 +15,6 @@ interface IKeyBoardSelector {
 
 export const TextArea = () => {
     const { typedValue } = useSelector((state: IKeyBoardSelector) => state.keyboard)
-    console.log(typedValue, "TYPE VALUE")
     return (
         <TextAreaWrapper>
             <StyledTextArea name="typed_value" id="typed_value" rows={4} readOnly value={typedValue.join("")}></StyledTextArea>

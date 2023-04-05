@@ -22,7 +22,7 @@ const ArrowRight = () => (
         <RotatedArrow src={arrow_control_svg} alt="arrow_control" />
     </ArrowContainer>
 )
-const ArrowBottom = () => (
+const ArrowBotto = () => (
     <ArrowContainer deg={270}>
         <RotatedArrow src={arrow_control_svg} alt="arrow_control" />
     </ArrowContainer>
@@ -35,7 +35,7 @@ export const Icon: FC<IIconPropStype> = ({ name }) => {
         "arrowLeft": ArrowLeft,
         "arrowRight": ArrowRight,
         "arrowTop": ArrowTop,
-        "arrowBottom": ArrowBottom,
+        "arrowBottom": ArrowBotto,
     }
     const IconComponent = icons[name]
 

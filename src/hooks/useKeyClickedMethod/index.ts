@@ -1,20 +1,7 @@
 import { validValues } from "constants/index"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { addAnyKey, addClickedKeyValue, capsClickHandler, deleteValue, pasteValue, shiftClickHandler } from "store/reducers"
-
-interface IKeyClickedHook {
-    subName?: string | null;
-    name: string;
-    capsClicked: boolean;
-    shiftClicked: boolean;
-    id: string;
-}
-
-interface IKeyBoardSelector {
-    keyboard: {
-        joinedValue: string;
-    }
-}
+import { IKeyClickedHook } from "./IUseKeyClicked"
 
 export const useKeyClickedMethod = () => {
     const dispatch = useDispatch()
