@@ -7,10 +7,10 @@ const KeyClickedSlice = createSlice({
         shiftClicked: false,
     },
     reducers: {
-        capsClickHandler: (state) => {
+        capsClickHandler: (state: any) => {
             state.capsClicked = !state.capsClicked
         },
-        shiftClickHandler: (state) => {
+        shiftClickHandler: (state: any) => {
             state.shiftClicked = !state.shiftClicked
             state.capsClicked = !state.capsClicked
         },

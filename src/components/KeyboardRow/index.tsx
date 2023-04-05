@@ -5,13 +5,7 @@ import { keys } from "constants/index"
 import { useSelector, useDispatch } from 'react-redux';
 import { addwholeValueToReducer } from "store/reducers";
 import { useEffect } from "react";
-interface IKeyBoardSelector {
-    keyboard: {
-        allKeyValues: string[];
-        joinedValue: string;
-        typedValue: string[];
-    }
-}
+import { IKeyBoardSelector } from "./IKeyboardRow"
 
 export const KeyboardRow = () => {
     const dispatch = useDispatch()

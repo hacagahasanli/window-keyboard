@@ -4,13 +4,8 @@ import { IKeyItemProps, IKeyItemType, IKeyNameProp } from "types/keyboardTypes"
 import { validValues } from "constants/index"
 import styled, { css } from "styled-components"
 import { useKeyClickedMethod } from "hooks";
+import { IKeyClickedSelector } from "./IKeyItem"
 
-interface IKeyClickedSelector {
-    keyClicked: {
-        capsClicked: boolean;
-        shiftClicked: boolean;
-    }
-}
 
 export const KeyItem = ({ id, size, name, subName, c, img, hasImage }: IKeyItemType) => {
     const { capsClicked, shiftClicked } = useSelector((state: IKeyClickedSelector) => state.keyClicked)

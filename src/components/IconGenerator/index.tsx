@@ -1,14 +1,7 @@
 import { window_key_svg, backspace_key_svg, arrow_control_svg } from "assets/icons"
 import { RotatedArrow, ArrowContainer } from "components/UI/global-styled-components"
 import { FC } from "react"
-
-interface IIconPropStype {
-    name: string;
-}
-
-interface IIconMap {
-    [key: string]: FC
-}
+import { IIconPropStype, IIconMap } from "./IIconGenerator"
 
 const WindowKey = () => <img src={window_key_svg} alt="window_key" />
 
@@ -19,13 +12,11 @@ const ArrowLeft = () => (
         <RotatedArrow src={arrow_control_svg} alt="arrow_control" />
     </ArrowContainer>
 )
-
 const ArrowTop = () => (
     <ArrowContainer deg={90}>
         <RotatedArrow src={arrow_control_svg} alt="arrow_control" />
     </ArrowContainer>
 )
-
 const ArrowRight = () => (
     <ArrowContainer deg={180}>
         <RotatedArrow src={arrow_control_svg} alt="arrow_control" />
