@@ -26,9 +26,12 @@ const KeyboardSlice = createSlice({
             state.allKeyValues = [...rowKeys];
         },
         addClickedKeyValue: (state: any, action: AddClickedKeyValueAction) => {
-            const { subName, name, capsClicked, shiftClicked } = action.payload;
+            const { subName, name, capsClicked, shiftClicked, texts } = action.payload;
             const hasSubName = !(!subName);
             const key = state.keyCombination.join("")
+
+            key === "ctrlv" && (texts?.split('')
+                .map((text: string) => state.typedValue.push(text)))
 
             if (key !== "ctrlc" && key !== "ctrlv") {
                 const addTypeValue = (name: string) =>

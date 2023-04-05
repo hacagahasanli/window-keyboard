@@ -21,10 +21,10 @@ export const useKeyClickedMethod = () => {
 
     const clickedHandler = async ({ id, subName, name, capsClicked, shiftClicked }: IKeyClickedHook) => {
         dispatch(addAnyKey(name))
-        const text = await navigator.clipboard.readText()
+        const texts = await navigator.clipboard.readText()
 
         if (validValues.includes(name))
-            return dispatch(addClickedKeyValue({ subName, name, capsClicked, shiftClicked, text }))
+            return dispatch(addClickedKeyValue({ subName, name, capsClicked, shiftClicked, texts }))
 
         switch (id) {
             case "delete":
