@@ -2,6 +2,13 @@ import { createSlice } from '@reduxjs/toolkit';
 import { AddClickedKeyValueAction } from '../store-types/index';
 import { letters, rowKeys } from 'constants/index';
 
+interface IDeleteAction {
+    type: string;
+    payload: {
+        type: string
+    }
+}
+
 const KeyboardSlice = createSlice({
     name: "KeyBoardReducer",
     initialState: {
@@ -25,12 +32,15 @@ const KeyboardSlice = createSlice({
 
             else if (hasSubName)
                 state.typedValue = [...state.typedValue, subName]
-                
+
             else
                 state.typedValue = [...state.typedValue, name]
         },
-        deleteValue: (state) => {
-            state.typedValue.pop()
+        deleteValue: (state: any, action: IDeleteAction) => {
+            const { type } = action.payload;
+            type === "delete"
+                ? state.typedValue.pop()
+                : state.typedValue = []
         },
     }
 })

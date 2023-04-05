@@ -43,7 +43,7 @@ export const keys: KeyboardKeysType = {
         { id: "right-open-bracket", name: '{', subName: "[", c: "g" },
         { id: "left-open-bracket", name: '}', subName: "]", c: "g" },
         { id: "slash-pipe", name: "|", subName: "\\", c: "g" },
-        { id: "delete", name: "Del" },
+        { id: "delete_all", name: "Del" },
     ],
     "rowThree": [
         { id: "caps-lock", name: "Caps", size: 2.1 },

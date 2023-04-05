@@ -16,12 +16,16 @@ export const useKeyClickedMethod = () => {
     const clickedHandler = ({ id, subName, name, capsClicked, shiftClicked }: IKeyClickedHook) => {
         if (validValues.includes(name))
             return dispatch(addClickedKeyValue({ subName, name, capsClicked, shiftClicked }))
-        if (id === "backspace")
-            return dispatch(deleteValue())
-        if (id === "caps-lock")
-            return dispatch(capsClickHandler())
-        if (id === "shift1" || id === "shift2")
-            return dispatch(shiftClickHandler())
+        switch (id) {
+            case "delete":
+            case "delete_all":
+                return dispatch(deleteValue({ type: id }))
+            case "caps-lock":
+                return dispatch(capsClickHandler())
+            case "shift1":
+            case "shift2":
+                return dispatch(shiftClickHandler())
+        }
     }
 
     return { clickedHandler }
