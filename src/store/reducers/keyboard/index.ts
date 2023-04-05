@@ -23,18 +23,20 @@ const KeyboardSlice = createSlice({
             const { subName, name, capsClicked, shiftClicked } = action.payload;
             const hasSubName = !(!subName);
 
+            const addTypeValue = (name: string) => {
+                state.typedValue = [...state.typedValue, name]
+            }
+
             if ((capsClicked || shiftClicked) && letters.includes(name)) {
                 const upperName = name.toUpperCase()
-                state.typedValue = [...state.typedValue, upperName]
+                addTypeValue(upperName)
             }
             else if (shiftClicked && hasSubName)
                 state.typedValue.push(name)
-
             else if (hasSubName)
-                state.typedValue = [...state.typedValue, subName]
-
+                addTypeValue(subName)
             else
-                state.typedValue = [...state.typedValue, name]
+                addTypeValue(name)
         },
         deleteValue: (state: any, action: IDeleteAction) => {
             const { type } = action.payload;

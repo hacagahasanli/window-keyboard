@@ -1,10 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+interface IKeyCombination {
+    type: string;
+    payload: string;
+}
+
 const KeyClickedSlice = createSlice({
     name: "KeyClicked",
     initialState: {
         capsClicked: false,
-        shiftClicked: false
+        shiftClicked: false,
+        keyCombination: []
     },
     reducers: {
         capsClickHandler: (state) => {
@@ -13,6 +19,10 @@ const KeyClickedSlice = createSlice({
         shiftClickHandler: (state) => {
             state.shiftClicked = !state.shiftClicked
             state.capsClicked = !state.capsClicked
+        },
+        addKeyCombination: (state: any, action: IKeyCombination) => {
+            const key = action.payload;
+            state.keyCombination = [...state.keyCombination, key]
         }
     }
 })
