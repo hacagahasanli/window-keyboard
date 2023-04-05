@@ -12,9 +12,6 @@ const KeyClickedSlice = createSlice({
         },
         shiftClickHandler: (state) => {
             state.shiftClicked = !state.shiftClicked
-            // if (!state.shiftClicked) {
-            //     state.capsClicked = true
-            // } else
             state.capsClicked = !state.capsClicked
         }
     }

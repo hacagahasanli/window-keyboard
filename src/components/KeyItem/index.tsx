@@ -1,14 +1,8 @@
 import { Icon } from ".."
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { IKeyItemProps, IKeyItemType, IKeyNameProp } from "types/keyboardTypes"
 import { validValues } from "constants/index"
 import styled, { css } from "styled-components"
-import {
-    addClickedKeyValue,
-    deleteValue,
-    capsClickHandler,
-    shiftClickHandler
-} from "store/reducers"
 import { useKeyClickedMethod } from "hooks";
 
 interface IKeyClickedSelector {
@@ -19,11 +13,12 @@ interface IKeyClickedSelector {
 }
 
 export const KeyItem = ({ id, size, name, subName, c, img, hasImage }: IKeyItemType) => {
-    const dispatch = useDispatch()
     const { capsClicked, shiftClicked } = useSelector((state: IKeyClickedSelector) => state.keyClicked)
     const { clickedHandler } = useKeyClickedMethod()
 
-    const addValue = () => clickedHandler({ id, subName, name, capsClicked, shiftClicked, dispatch })
+    const addValue = () => {
+        clickedHandler({ id, subName, name, capsClicked, shiftClicked })
+    }
 
     const isUpperCasedValue = capsClicked && validValues.includes(name)
 

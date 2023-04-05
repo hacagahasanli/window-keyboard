@@ -8,11 +8,12 @@ interface IKeyClickedHook {
     capsClicked: boolean;
     shiftClicked: boolean;
     id: string;
-    dispatch: any;
 }
 
 export const useKeyClickedMethod = () => {
-    const clickedHandler = ({ id, subName, name, capsClicked, shiftClicked, dispatch }: IKeyClickedHook) => {
+    const dispatch = useDispatch()
+
+    const clickedHandler = ({ id, subName, name, capsClicked, shiftClicked }: IKeyClickedHook) => {
         if (validValues.includes(name))
             return dispatch(addClickedKeyValue({ subName, name, capsClicked, shiftClicked }))
         if (id === "backspace")
