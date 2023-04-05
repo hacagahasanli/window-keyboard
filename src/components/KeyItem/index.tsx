@@ -19,11 +19,11 @@ interface IKeyClickedSelector {
 }
 
 export const KeyItem = ({ id, size, name, subName, c, img, hasImage }: IKeyItemType) => {
+    const dispatch = useDispatch()
     const { capsClicked, shiftClicked } = useSelector((state: IKeyClickedSelector) => state.keyClicked)
+    const { clickedHandler } = useKeyClickedMethod()
 
-    const addValue = () => {
-        useKeyClickedMethod({ id, subName, name, capsClicked, shiftClicked })
-    }
+    const addValue = () => clickedHandler({ id, subName, name, capsClicked, shiftClicked, dispatch })
 
     const isUpperCasedValue = capsClicked && validValues.includes(name)
 
