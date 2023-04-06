@@ -1,17 +1,7 @@
 import styled from "styled-components"
 import { useSelector } from "react-redux"
 import { ITextareaProps } from '../../types/keyClickedTypes/index';
-
-interface IKeyClickedSelector {
-    keyClicked: {
-        capsClicked: boolean;
-    }
-}
-interface IKeyBoardSelector {
-    keyboard: {
-        typedValue: string[];
-    }
-}
+import { IKeyBoardSelector } from "./ITextArea";
 
 export const TextArea = () => {
     const { typedValue } = useSelector((state: IKeyBoardSelector) => state.keyboard)

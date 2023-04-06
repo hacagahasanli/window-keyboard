@@ -16,7 +16,7 @@ const KeyboardSlice = createSlice({
         },
         addClickedKeyValue: (state: any, action: AddClickedKeyValueAction) => {
             const { subName, name, capsClicked, shiftClicked, texts } = action.payload;
-            const hasSubName = !(!subName);
+            const hasSubName = !!subName;
             const key = state.keyCombination.join("")
 
             key === "ctrlv" && (texts?.split('')

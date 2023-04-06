@@ -17,7 +17,7 @@ export const KeyItem = ({ id, size, name, subName, c, img, hasImage }: IKeyItemT
 
     const isUpperCasedValue = capsClicked && validValues.includes(name)
 
-    const isActive = !(!subName) && shiftClicked
+    const isActive = !!subName && shiftClicked
 
     const currentScript = hasImage && img
         ? <Icon name={img} />
